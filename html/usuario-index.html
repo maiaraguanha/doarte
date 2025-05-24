@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <title>DoArte - Conectando Artesãos e Apoiadores</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/script.js" defer></script>
+</head>
+
+<body class="min-h-screen flex flex-col bg-stone-50">
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3">
+      <div class="flex justify-between items-center">
+        <!-- Logotipo -->        
+        <a href="usuario-index.html" class="flex items-center space-x-2 group">
+          <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-sky-300 to-pink-300 overflow-hidden">
+            <img src="../images/favicon.png" alt="Logo" class="w-full h-full object-cover">
+          </div>
+          <div class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-pink-400 font-bold text-xl sm:text-2xl group-hover:scale-105 transition-transform duration-300">
+            DoArte
+          </div>
+        </a>
+
+        <!-- Menu para desktop -->
+        <nav class="hidden md:flex items-center space-x-1">
+          <a href="usuario-index.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Início
+          </a>
+          <a href="usuario-artesaos.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Artesãos
+          </a>
+          <a href="usuario-pedidos.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Pedidos
+          </a>
+          <a href="usuario-feeds.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Feeds
+          </a>
+          <a href="usuario-eventos.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Eventos
+          </a>
+          <div class="h-6 w-px bg-gray-200 mx-2"></div>
+          <div class="flex items-center space-x-2">
+            <a href="usuario-visualizar.html" class="px-4 py-1.5 sm:px-5 sm:py-2 text-white bg-gradient-to-r from-sky-400 to-pink-400 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+              <i class="fas fa-user mr-1"></i> Usuário
+            </a>
+            <a href="index.html" class="px-4 py-1.5 sm:px-5 sm:py-2 text-white bg-gradient-to-r from-rose-400 to-red-400 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+              <i class="fas fa-sign-out-alt mr-1"></i> Sair
+            </a>
+          </div>
+        </nav>
+
+        <!-- Botão do menu mobile -->
+        <button id="menuToggle" class="md:hidden text-gray-700 focus:outline-none" onclick="toggleMenu()">
+          <i class="fas fa-bars text-xl menu-icon"></i>
+        </button>
+      </div>
+
+      <!-- Menu mobile -->
+      <nav id="mobileMenu" class="md:hidden mt-4 space-y-3 pb-3">
+        <a href="usuario-index.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Início</a>
+        <a href="usuario-artesaos.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Artesãos</a>
+        <a href="usuario-pedidos.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Pedidos</a>
+        <a href="usuario-feeds.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Feeds</a>
+        <a href="usuario-eventos.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Eventos</a>
+        <div class="pt-2 border-t border-gray-100 mt-2"></div>
+        <div class="flex flex-col sm:flex-row gap-2 mt-4">
+          <a href="usuario-visualizar.html" class="block text-white bg-gradient-to-r from-sky-400 to-pink-400 px-4 py-2 rounded-lg font-medium transition duration-300 text-center flex-1">
+            <i class="fas fa-user mr-2"></i> Usuário
+          </a>
+          <a href="index.html" class="block text-white bg-gradient-to-r from-rose-400 to-red-400 px-4 py-2 rounded-lg font-medium transition duration-300 text-center flex-1">
+            <i class="fas fa-sign-out-alt mr-2"></i>Sair
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative">
+    <div class="hero-gradient">
+      <div class="container mx-auto px-4 py-10 sm:py-16 md:py-24">
+        <div class="md:flex items-center">
+          <div class="md:w-1/2 mb-8 md:mb-0">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+              Conectando Artesãos e Apoiadores
+            </h1>
+            <p class="text-white text-base sm:text-lg md:text-xl mb-8 max-w-lg">
+              Uma plataforma para artesãos exporem as criações que são doadas após finalizadas e receberem doações de materiais para continuar criando arte e amor pra quem precisa.
+            </p>
+          </div>
+          <div class="md:w-1/2 flex justify-center">
+            <div class="relative w-full max-w-xs sm:max-w-sm md:max-w-md">
+              <div class="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 w-16 h-16 sm:w-24 sm:h-24 bg-pink-200 rounded-lg transform rotate-6 float-animation"></div>
+              <div class="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-20 h-20 sm:w-32 sm:h-32 bg-sky-200 rounded-lg transform -rotate-6 float-animation" style="animation-delay: 0.5s"></div>
+              <img 
+                src="../images/logo.png" 
+                alt="Logo" 
+                class="w-full h-auto rounded-lg shadow-xl relative z-10"
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Últimos Feeds -->
+  <section class="py-8 sm:py-12 md:py-16">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 sm:mb-0">Últimos Feeds</h2>
+        <a href="usuario-feeds-cadastrar.html" class="px-4 py-2 sm:px-5 sm:py-2 bg-gradient-to-r from-sky-400 to-sky-500 text-white rounded-full font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 flex items-center">
+          <i class="fas fa-plus mr-2"></i> Adicionar Feed
+        </a>
+      </div>
+      
+      <!-- Modelos de Feeds-->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Feed 1 -->
+        <a href="usuario-feeds-visualizar.html" class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
+          <div class="relative h-48">
+            <img 
+              src="https://placehold.co/600x400/BFD7ED/FFFFFF?text=Cerâmica+Decorativa" 
+              alt="Cerâmica Decorativa" 
+              class="w-full h-full object-cover"
+            >
+            <span class="absolute top-4 left-4 bg-sky-300 text-white px-3 py-1 rounded-full text-sm font-medium">
+              Cerâmica
+            </span>
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-gray-800 mb-1">Cerâmica Decorativa</h3>
+            <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+              Aprenda técnicas simples para criar peças de cerâmica incríveis no conforto da sua casa.
+              Neste tutorial, vamos como uma peça de cerâmica decorativa é feita à mão com técnicas 
+              tradicionais passadas por gerações.Cada detalhe é cuidadosamente trabalhado para criar 
+              uma peça única que traz beleza e personalidade para qualquer ambiente. A cerâmica é 
+              queimada em forno de alta temperatura, garantindo durabilidade e acabamento de alta 
+              qualidade. As cores são obtidas através de pigmentos naturais, resultando em tons 
+              suaves e harmoniosos.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <div class="w-8 h-8 bg-pink-200 rounded-full flex items-center justify-center text-pink-500 font-bold text-xs mr-2">
+                  MS
+                </div>
+                <span class="text-sm text-gray-700">Maria Silva</span>
+              </div>
+              <span class="text-xs text-gray-500">2 dias atrás</span>
+            </div>
+          </div>
+        </a>
+        
+        <!-- Feed 2 -->
+        <a href="#" class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
+          <div class="relative h-48">
+            <img 
+              src="https://placehold.co/600x400/F9C6D1/FFFFFF?text=Bordado+Artesanal" 
+              alt="Bordado Artesanal" 
+              class="w-full h-full object-cover"
+            >
+            <span class="absolute top-4 left-4 bg-pink-300 text-white px-3 py-1 rounded-full text-sm font-medium">
+              Têxtil
+            </span>
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-gray-800 mb-1">Bordado Artesanal</h3>
+            <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+              Bordado feito à mão com técnicas tradicionais do nordeste brasileiro, representando a cultura local.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <div class="w-8 h-8 bg-sky-200 rounded-full flex items-center justify-center text-sky-500 font-bold text-xs mr-2">
+                  JC
+                </div>
+                <span class="text-sm text-gray-700">João Costa</span>
+              </div>
+              <span class="text-xs text-gray-500">5 dias atrás</span>
+            </div>
+          </div>
+        </a>
+        
+        <!-- Feed 3 -->
+        <a href="#" class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
+          <div class="relative h-48">
+            <img 
+              src="https://placehold.co/600x400/FFF2CC/FFFFFF?text=Escultura+em+Madeira" 
+              alt="Escultura em Madeira" 
+              class="w-full h-full object-cover"
+            >
+            <span class="absolute top-4 left-4 bg-amber-300 text-white px-3 py-1 rounded-full text-sm font-medium">
+              Madeira
+            </span>
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-gray-800 mb-1">Escultura em Madeira</h3>
+            <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+              Conheça as principais tendências de artesanato que estão bombando em 2025.
+              Cores, materiais e técnicas que estão em alta.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <div class="w-8 h-8 bg-yellow-200 rounded-full flex items-center justify-center text-yellow-500 font-bold text-xs mr-2">
+                  AS
+                </div>
+                <span class="text-sm text-gray-700">Ana Santos</span>
+              </div>
+              <span class="text-xs text-gray-500">1 semana atrás</span>
+            </div>
+          </div>
+        </a>
+        
+        <!-- Feed 4 -->
+        <a href="#" class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
+          <div class="relative h-48">
+            <img 
+              src="https://placehold.co/600x400/D8F3DC/FFFFFF?text=Bijuteria+Artesanal" 
+              alt="Bijuteria Artesanal" 
+              class="w-full h-full object-cover"
+            >
+            <span class="absolute top-4 left-4 bg-green-300 text-white px-3 py-1 rounded-full text-sm font-medium">
+              Joalheria
+            </span>
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-gray-800 mb-1">Bijuteria Artesanal</h3>
+            <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+              Descubra os materiais sustentáveis que estão revolucionando o mundo do artesanato. 
+              Alternativas ecológicas que não comprometem a qualidade. Conjunto de brincos e colar 
+              feitos com sementes e materiais naturais da Amazônia.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <div class="w-8 h-8 bg-green-200 rounded-full flex items-center justify-center text-green-500 font-bold text-xs mr-2">
+                  PL
+                </div>
+                <span class="text-sm text-gray-700">Pedro Lima</span>
+              </div>
+              <span class="text-xs text-gray-500">2 semanas atrás</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Ver todos os feeds -->
+      <div class="text-center mt-6 sm:mt-8">
+        <a href="usuario-feeds.html" class="inline-flex items-center text-sky-500 hover:text-sky-600 font-medium">
+          Ver todos os feeds
+          <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Próximos Eventos -->
+  <section class="py-8 sm:py-12 md:py-16 bg-gradient-to-r from-sky-50 to-pink-50">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center mb-6 sm:mb-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-800">Próximos Eventos</h2>
+      </div>
+
+      <!-- Modelos de Eventos-->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Evento 1 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
+          <div class="relative h-48">
+            <img 
+              src="https://placehold.co/600x400/BFD7ED/FFFFFF?text=Feira+de+Artesanato" 
+              alt="Feira de Artesanato" 
+              class="w-full h-full object-cover"
+            >
+            <div class="absolute top-4 right-4 bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+              15 Jun
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-gray-800 mb-1">Feira de Artesanato em São Paulo</h3>
+            <div class="flex items-center text-gray-600 text-sm mb-3">
+              <i class="fas fa-map-marker-alt text-pink-400 mr-2"></i>
+              Parque Ibirapuera, São Paulo - SP
+            </div>
+            <div class="flex items-center text-gray-600 text-sm mb-3">
+              <i class="fas fa-clock text-pink-400 mr-2"></i>
+              10:00 - 20:00
+            </div>
+            <p class="text-gray-600 text-sm mb-4">
+              A maior feira de artesanato do Brasil chega a São Paulo.
+            </p>
+            <a href="usuario-eventos-visualizar.html" class="inline-block px-4 py-2 bg-sky-100 text-sky-600 rounded-lg hover:bg-sky-200 transition duration-300">
+              Saiba mais
+            </a>
+          </div>
+        </div>
+        
+        <!-- Evento 2 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
+          <div class="relative h-48">
+            <img 
+              src="https://placehold.co/600x400/F9C6D1/FFFFFF?text=Workshop+de+Cerâmica" 
+              alt="Workshop de Cerâmica" 
+              class="w-full h-full object-cover"
+            >
+            <div class="absolute top-4 right-4 bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+              10 Jun
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-gray-800 mb-1">Workshop de Cerâmica</h3>
+            <div class="flex items-center text-gray-600 text-sm mb-3">
+              <i class="fas fa-map-marker-alt text-pink-400 mr-2"></i>
+              Ateliê Maria Silva, São Paulo - SP
+            </div>
+            <div class="flex items-center text-gray-600 text-sm mb-3">
+              <i class="fas fa-clock text-pink-400 mr-2"></i>
+              14:00 - 17:00
+            </div>
+            <p class="text-gray-600 text-sm mb-4">
+              Aprenda técnicas básicas de cerâmica com a artesã Maria Silva. Materiais inclusos.
+            </p>
+            <a href="#" class="inline-block px-4 py-2 bg-sky-100 text-sky-600 rounded-lg hover:bg-sky-200 transition duration-300">
+              Saiba mais
+            </a>
+          </div>
+        </div>
+        
+        <!-- Evento 3 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
+          <div class="relative h-48">
+            <img 
+              src="https://placehold.co/600x400/FFF2CC/FFFFFF?text=Exposição+Artesanal" 
+              alt="Exposição Artesanal" 
+              class="w-full h-full object-cover"
+            >
+            <div class="absolute top-4 right-4 bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+              15 Ago
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-gray-800 mb-1">Exposição "Mãos que Criam"</h3>
+            <div class="flex items-center text-gray-600 text-sm mb-3">
+              <i class="fas fa-map-marker-alt text-pink-400 mr-2"></i>
+              Museu de Arte, Belo Horizonte - MG
+            </div>
+            <div class="flex items-center text-gray-600 text-sm mb-3">
+              <i class="fas fa-clock text-pink-400 mr-2"></i>
+              09:00 - 20:00
+            </div>
+            <p class="text-gray-600 text-sm mb-4">
+              Venha conhecer as mais belas peças de arte em madeira.
+            </p>
+            <a href="#" class="inline-block px-4 py-2 bg-sky-100 text-sky-600 rounded-lg hover:bg-sky-200 transition duration-300">
+              Saiba mais
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!--Ver todos os eventos -->
+      <div class="text-center mt-6 sm:mt-8">
+        <a href="usuario-eventos.html" class="inline-flex items-center text-pink-500 hover:text-pink-600 font-medium">
+          Ver todos os eventos
+          <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Pedidos de Materiais -->
+  <section class="py-8 sm:py-12 md:py-16">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center mb-6 sm:mb-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-800">Pedidos de Materiais</h2>
+        <a href="usuario-editar.html" class="px-4 py-2 sm:px-5 sm:py-2 bg-gradient-to-r from-amber-400 to-amber-500 text-white rounded-full font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 flex items-center">
+          <i class="fas fa-plus mr-2"></i> Pedir Materiais
+        </a>
+      </div>
+
+      <!-- Modelos de Pedidos -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Pedido 1 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <img 
+                src="https://placehold.co/100x100/F9C6D1/FFFFFF?text=MS" 
+                alt="Maria Silva" 
+                class="w-12 h-12 rounded-full mr-3"
+              >
+              <div>
+                <h3 class="font-semibold text-lg text-gray-800">Maria Silva</h3>
+                <p class="text-gray-600 text-sm">Artesã de Cerâmica</p>
+              </div>
+            </div>
+            
+            <h4 class="font-medium text-gray-800 mb-2">Materiais Solicitados:</h4>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-center text-gray-600">
+                <i class="fas fa-circle text-xs text-amber-400 mr-2"></i>
+                Argila para cerâmica (2kg)
+              </li>
+              <li class="flex items-center text-gray-600">
+                <i class="fas fa-circle text-xs text-amber-400 mr-2"></i>
+                Esmalte cerâmico (cores variadas)
+              </li>
+              <li class="flex items-center text-gray-600">
+                <i class="fas fa-circle text-xs text-amber-400 mr-2"></i>
+                Pincéis para acabamento
+              </li>
+            </ul>
+            
+            <div class="flex justify-between items-center">
+              <span class="text-xs text-gray-500">Publicado há 3 dias</span>
+              <a href="usuarios.html" class="px-4 py-2 bg-amber-100 text-amber-600 rounded-lg hover:bg-amber-200 transition duration-300">
+                Quero Doar
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Pedido 2 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <img 
+                src="https://placehold.co/100x100/BFD7ED/FFFFFF?text=JC" 
+                alt="João Costa" 
+                class="w-12 h-12 rounded-full mr-3"
+              >
+              <div>
+                <h3 class="font-semibold text-lg text-gray-800">João Costa</h3>
+                <p class="text-gray-600 text-sm">Artesão Têxtil</p>
+              </div>
+            </div>
+            
+            <h4 class="font-medium text-gray-800 mb-2">Materiais Solicitados:</h4>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-center text-gray-600">
+                <i class="fas fa-circle text-xs text-amber-400 mr-2"></i>
+                Linhas para bordado (cores diversas)
+              </li>
+              <li class="flex items-center text-gray-600">
+                <i class="fas fa-circle text-xs text-amber-400 mr-2"></i>
+                Tecido de algodão cru (1m²)
+              </li>
+              <li class="flex items-center text-gray-600">
+                <i class="fas fa-circle text-xs text-amber-400 mr-2"></i>
+                Agulhas para bordado
+              </li>
+            </ul>
+            
+            <div class="flex justify-between items-center">
+              <span class="text-xs text-gray-500">Publicado há 1 semana</span>
+              <a href="#" class="px-4 py-2 bg-amber-100 text-amber-600 rounded-lg hover:bg-amber-200 transition duration-300">
+                Quero Doar
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Pedido 3 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <img 
+                src="https://placehold.co/100x100/D8F3DC/FFFFFF?text=AS" 
+                alt="Ana Santos" 
+                class="w-12 h-12 rounded-full mr-3"
+              >
+              <div>
+                <h3 class="font-semibold text-lg text-gray-800">Ana Santos</h3>
+                <p class="text-gray-600 text-sm">Escultora em Madeira</p>
+              </div>
+            </div>
+            
+            <h4 class="font-medium text-gray-800 mb-2">Materiais Solicitados:</h4>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-center text-gray-600">
+                <i class="fas fa-circle text-xs text-amber-400 mr-2"></i>
+                Formões para entalhe (conjunto básico)
+              </li>
+              <li class="flex items-center text-gray-600">
+                <i class="fas fa-circle text-xs text-amber-400 mr-2"></i>
+                Lixas de madeira (granulações variadas)
+              </li>
+              <li class="flex items-center text-gray-600">
+                <i class="fas fa-circle text-xs text-amber-400 mr-2"></i>
+                Verniz natural para acabamento
+              </li>
+            </ul>
+            
+            <div class="flex justify-between items-center">
+              <span class="text-xs text-gray-500">Publicado há 2 semanas</span>
+              <a href="#" class="px-4 py-2 bg-amber-100 text-amber-600 rounded-lg hover:bg-amber-200 transition duration-300">
+                Quero Doar
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Ver todos os pedidos -->
+      <div class="text-center mt-6 sm:mt-8">
+        <a href="usuario-pedidos.html" class="inline-flex items-center text-amber-500 hover:text-amber-600 font-medium">
+          Ver todos os pedidos
+          <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+    
+  <!-- Artesãos em Destaque -->
+  <section class="py-8 sm:py-12 md:py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 text-center mb-8 sm:mb-12">Artesãos em Destaque</h2>
+
+      <!-- Modelos de Artesões -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Artesão 1 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover text-center">
+          <div class="relative h-40 overflow-hidden">
+            <img 
+              src="https://placehold.co/600x400/BFD7ED/FFFFFF?text=Cerâmica" 
+              alt="Trabalhos de Maria Silva" 
+              class="w-full h-full object-cover"
+            >
+          </div>
+          <div class="relative mt-[-40px]">
+            <img 
+              src="https://placehold.co/100x100/F9C6D1/FFFFFF?text=MS" 
+              alt="Maria Silva" 
+              class="w-20 h-20 rounded-full mx-auto border-4 border-white"
+            >
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-gray-800 mb-1">Maria Silva</h3>
+            <p class="text-gray-600 text-sm mb-3">Artesã de Cerâmica</p>
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+              Trabalho com cerâmica há 15 anos, criando peças que contam histórias da cultura brasileira.
+            </p>
+            <a href="usuarios.html" class="inline-block px-4 py-2 bg-sky-100 text-sky-600 rounded-lg hover:bg-sky-200 transition duration-300">
+              Ver Perfil
+            </a>
+          </div>
+        </div>
+        
+        <!-- Artesão 2 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover text-center">
+          <div class="relative h-40 overflow-hidden">
+            <img 
+              src="https://placehold.co/600x400/F9C6D1/FFFFFF?text=Têxtil" 
+              alt="Trabalhos de João Costa" 
+              class="w-full h-full object-cover"
+            >
+          </div>
+          <div class="relative mt-[-40px]">
+            <img 
+              src="https://placehold.co/100x100/BFD7ED/FFFFFF?text=JC" 
+              alt="João Costa" 
+              class="w-20 h-20 rounded-full mx-auto border-4 border-white"
+            >
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-gray-800 mb-1">João Costa</h3>
+            <p class="text-gray-600 text-sm mb-3">Artesão Têxtil</p>
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+              Especializado em bordados tradicionais do nordeste, preservando técnicas passadas por gerações.
+            </p>
+            <a href="#" class="inline-block px-4 py-2 bg-sky-100 text-sky-600 rounded-lg hover:bg-sky-200 transition duration-300">
+              Ver Perfil
+            </a>
+          </div>
+        </div>
+        
+        <!-- Artesão 3 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover text-center">
+          <div class="relative h-40 overflow-hidden">
+            <img 
+              src="https://placehold.co/600x400/FFF2CC/FFFFFF?text=Madeira" 
+              alt="Trabalhos de Ana Santos" 
+              class="w-full h-full object-cover"
+            >
+          </div>
+          <div class="relative mt-[-40px]">
+            <img 
+              src="https://placehold.co/100x100/D8F3DC/FFFFFF?text=AS" 
+              alt="Ana Santos" 
+              class="w-20 h-20 rounded-full mx-auto border-4 border-white"
+            >
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-gray-800 mb-1">Ana Santos</h3>
+            <p class="text-gray-600 text-sm mb-3">Escultora em Madeira</p>
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+              Crio esculturas em madeira reciclada, dando nova vida a materiais descartados.
+            </p>
+            <a href="#" class="inline-block px-4 py-2 bg-sky-100 text-sky-600 rounded-lg hover:bg-sky-200 transition duration-300">
+              Ver Perfil
+            </a>
+          </div>
+        </div>
+        
+        <!-- Artesão 4 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover text-center">
+          <div class="relative h-40 overflow-hidden">
+            <img 
+              src="https://placehold.co/600x400/D8F3DC/FFFFFF?text=Joalheria" 
+              alt="Trabalhos de Pedro Lima" 
+              class="w-full h-full object-cover"
+            >
+          </div>
+          <div class="relative mt-[-40px]">
+            <img 
+              src="https://placehold.co/100x100/FFF2CC/FFFFFF?text=PL" 
+              alt="Pedro Lima" 
+              class="w-20 h-20 rounded-full mx-auto border-4 border-white"
+            >
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-gray-800 mb-1">Pedro Lima</h3>
+            <p class="text-gray-600 text-sm mb-3">Artesão de Bijuterias</p>
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+              Crio peças únicas com sementes, pedras e materiais naturais da Amazônia.
+            </p>
+            <a href="#" class="inline-block px-4 py-2 bg-sky-100 text-sky-600 rounded-lg hover:bg-sky-200 transition duration-300">
+              Ver Perfil
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conhecer todos os artesãos  -->
+      <div class="text-center mt-6 sm:mt-8">
+        <a href="usuario-artesaos.html" class="inline-flex items-center text-green-700 hover:text-green-900 font-medium">
+          Conhecer todos os artesãos
+          <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="bg-sky-200 text-gray-700 py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">DoArte</h3>
+          <p class="mb-4">
+            (Doar + Arte)
+            <br>Transformando doações em criações e amor.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+              <i class="fab fa-facebook-f"></i>
+              <span class="sr-only">Facebook</span>
+            </a>
+            <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+              <i class="fab fa-instagram"></i>
+              <span class="sr-only">Instagram</span>
+            </a>
+            <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+              <i class="fab fa-twitter"></i>
+              <span class="sr-only">Twitter</span>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Links Rápidos</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="usuario-index.html" class="hover:text-sky-500 transition-colors duration-300">
+                Início
+              </a>
+            </li>
+            <li>
+              <a href="usuario-artesaos.html" class="hover:text-sky-500 transition-colors duration-300">
+                Artesãos
+              </a>
+            </li>
+            <li>
+              <a href="usuario-pedidos.html" class="hover:text-sky-500 transition-colors duration-300">
+                Pedidos
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+                Como Ajudar
+              </a>
+            </li>
+            <li>
+              <a href="register.html" class="hover:text-sky-500 transition-colors duration-300">
+                Seja um Artesão
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Categorias</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+                Cerâmica
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+                Têxtil
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+                Madeira
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+                Joalheria
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+                Cestaria
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contato</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <span class="mr-2">📍</span>
+              <span>Rua das Artes, 123, São Paulo - SP</span>
+            </li>
+            <li class="flex items-start">
+              <span class="mr-2">📱</span>
+              <span>(11) 98765-4321</span>
+            </li>
+            <li class="flex items-start">
+              <span class="mr-2">✉️</span>
+              <span>contato@doarte.com.br</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-sky-300 mt-8 pt-8 text-center">
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> DoArte. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

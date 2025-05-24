@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <title>Painel Administrativo - DoArte</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/script.js" defer></script>
+</head>
+
+<body class="min-h-screen flex flex-col bg-stone-50">
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3">
+      <div class="flex justify-between items-center">
+        <!-- Logotipo -->        
+        <a href="admin-index.html" class="flex items-center space-x-2 group">
+          <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-sky-300 to-pink-300 overflow-hidden">
+            <img src="../images/favicon.png" alt="Logo" class="w-full h-full object-cover">
+          </div>
+          <div class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-pink-400 font-bold text-xl sm:text-2xl group-hover:scale-105 transition-transform duration-300">
+            DoArte
+          </div>
+        </a>
+
+        <!-- Menu para desktop -->
+        <nav class="hidden md:flex items-center space-x-1">
+          <a href="admin-index.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Início
+          </a>
+          <a href="admin-dashboard.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Dashboard
+          </a>
+          <a href="admin-artesaos.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Artesãos
+          </a>
+          <a href="admin-pedidos.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Pedidos
+          </a>
+          <a href="admin-feeds.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Feeds
+          </a>
+          <a href="admin-eventos.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Eventos
+          </a>
+          <div class="h-6 w-px bg-gray-200 mx-2"></div>
+          <div class="flex items-center space-x-2">
+            <a href="#" class="px-4 py-1.5 sm:px-5 sm:py-2 text-white bg-gradient-to-r from-sky-400 to-pink-400 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+              <i class="fas fa-user mr-1"></i> Administrador
+            </a>
+            <a href="index.html" class="px-4 py-1.5 sm:px-5 sm:py-2 text-white bg-gradient-to-r from-rose-400 to-red-400 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+              <i class="fas fa-sign-out-alt mr-1"></i> Sair
+            </a>
+          </div>
+        </nav>
+
+        <!-- Botão do menu mobile -->
+        <button id="menuToggle" class="md:hidden text-gray-700 focus:outline-none" onclick="toggleMenu()">
+          <i class="fas fa-bars text-xl menu-icon"></i>
+        </button>
+      </div>
+
+      <!-- Menu mobile -->
+      <nav id="mobileMenu" class="md:hidden mt-4 space-y-3 pb-3">
+        <a href="admin-index.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Início</a>
+        <a href="admin-dashboard.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Dashboard</a>
+        <a href="admin-artesaos.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Artesãos</a>
+        <a href="admin-pedidos.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Pedidos</a>
+        <a href="admin-feeds.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Feeds</a>
+        <a href="admin-eventos.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Eventos</a>
+        <div class="pt-2 border-t border-gray-100 mt-2"></div>
+        <div class="flex flex-col sm:flex-row gap-2 mt-4">
+          <a href="#" class="block text-white bg-gradient-to-r from-sky-400 to-pink-400 px-4 py-2 rounded-lg font-medium transition duration-300 text-center flex-1">
+            <i class="fas fa-user mr-2"></i>Administrador
+          </a>
+          <a href="index.html" class="block text-white bg-gradient-to-r from-rose-400 to-red-400 px-4 py-2 rounded-lg font-medium transition duration-300 text-center flex-1">
+            <i class="fas fa-sign-out-alt mr-2"></i>Sair
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Status do Dashboard -->
+  <section class="py-8">
+    <div class="container mx-auto px-4">
+      <h1 class="text-2xl font-bold text-gray-800 mb-6">Dashboard</h1>
+      
+      <!-- Modelo de 4 Status -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Status 1 -->
+        <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 card-hover border border-gray-100">
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center mr-4">
+              <i class="fas fa-users text-sky-500 text-xl"></i>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">Total de Usuários</p>
+              <h3 class="text-2xl font-bold text-gray-800">248</h3>
+            </div>
+          </div>
+          <div class="mt-4 flex items-center text-sm">
+            <span class="text-green-500 flex items-center">
+              <i class="fas fa-arrow-up mr-1"></i> 12%
+            </span>
+            <span class="text-gray-500 ml-2">Desde o último mês</span>
+          </div>
+        </div>
+        
+        <!-- Status 2 -->
+        <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 card-hover border border-gray-100">
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
+              <i class="fas fa-images text-pink-500 text-xl"></i>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">Total de Feeds</p>
+              <h3 class="text-2xl font-bold text-gray-800">156</h3>
+            </div>
+          </div>
+          <div class="mt-4 flex items-center text-sm">
+            <span class="text-green-500 flex items-center">
+              <i class="fas fa-arrow-up mr-1"></i> 8%
+            </span>
+            <span class="text-gray-500 ml-2">Desde o último mês</span>
+          </div>
+        </div>
+        
+        <!-- Status 3 -->
+        <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 card-hover border border-gray-100">
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mr-4">
+              <i class="fas fa-box-open text-amber-500 text-xl"></i>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">Pedidos de Materiais</p>
+              <h3 class="text-2xl font-bold text-gray-800">87</h3>
+            </div>
+          </div>
+          <div class="mt-4 flex items-center text-sm">
+            <span class="text-green-500 flex items-center">
+              <i class="fas fa-arrow-up mr-1"></i> 5%
+            </span>
+            <span class="text-gray-500 ml-2">Desde o último mês</span>
+          </div>
+        </div>
+        
+        <!-- Status 4 -->
+        <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 card-hover border border-gray-100">
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+              <i class="fas fa-calendar-alt text-green-500 text-xl"></i>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">Eventos Ativos</p>
+              <h3 class="text-2xl font-bold text-gray-800">12</h3>
+            </div>
+          </div>
+          <div class="mt-4 flex items-center text-sm">
+            <span class="text-green-500 flex items-center">
+              <i class="fas fa-arrow-up mr-1"></i> 15%
+            </span>
+            <span class="text-gray-500 ml-2">Desde o último mês</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Últimos Feeds -->
+  <section class="py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-xl font-bold text-gray-800">Últimos Feeds</h2>
+        <a href="admin-feeds-cadastrar.html" class="px-4 py-2 bg-gradient-to-r from-sky-400 to-sky-500 text-white rounded-full font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 flex items-center text-sm">
+          <i class="fas fa-plus mr-2"></i> Adicionar Feed
+        </a>
+      </div>
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <div class="overflow-x-auto">
+          <!-- Linha do cabeçalho da lista de feeds -->
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Título
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Artesão
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Categoria
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Data
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Status
+                </th>
+                <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Ações
+                </th>
+              </tr>
+            </thead>
+
+            <!-- Modelos para a lista de feeds -->
+            <tbody class="bg-white divide-y divide-gray-200">
+              <!-- Linha 1 -->
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm font-medium text-gray-900">Cerâmica Decorativa</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 h-8 w-8">
+                      <img class="h-8 w-8 rounded-full" src="https://placehold.co/100x100/F9C6D1/FFFFFF?text=MS" alt="Maria Silva">
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">Maria Silva</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-sky-100 text-sky-800">
+                    Cerâmica
+                  </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  15/05/2025
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    Ativo
+                  </span>
+                </td>
+                <!-- ações -->
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <a href="admin-feeds-visualizar.html" class="text-sky-600 hover:text-sky-900 mr-3">
+                    <i class="fas fa-eye"></i>
+                  </a>
+                  <a href="admin-feeds-editar.html" class="text-yellow-600 hover:text-yellow-900 mr-3">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a href="#" class="text-red-600 hover:text-red-900">
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                </td>
+              </tr>
+              <!-- Linha 2 -->
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm font-medium text-gray-900">Bordado Artesanal</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 h-8 w-8">
+                      <img class="h-8 w-8 rounded-full" src="https://placehold.co/100x100/BFD7ED/FFFFFF?text=JC" alt="João Costa">
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">João Costa</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-pink-100 text-pink-800">
+                    Têxtil
+                  </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  10/05/2025
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    Ativo
+                  </span>
+                </td>
+                <!-- ações -->
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <a href="#" class="text-sky-600 hover:text-sky-900 mr-3">
+                    <i class="fas fa-eye"></i>
+                  </a>
+                  <a href="#" class="text-yellow-600 hover:text-yellow-900 mr-3">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a href="#" class="text-red-600 hover:text-red-900">
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                </td>
+              </tr>
+              <!-- Linha 3 -->
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm font-medium text-gray-900">Escultura em Madeira</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 h-8 w-8">
+                      <img class="h-8 w-8 rounded-full" src="https://placehold.co/100x100/D8F3DC/FFFFFF?text=AS" alt="Ana Santos">
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">Ana Santos</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-amber-100 text-amber-800">
+                    Madeira
+                  </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  05/05/2025
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    Ativo
+                  </span>
+                </td>
+                <!-- ações -->
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <a href="#" class="text-sky-600 hover:text-sky-900 mr-3">
+                    <i class="fas fa-eye"></i>
+                  </a>
+                  <a href="#" class="text-yellow-600 hover:text-yellow-900 mr-3">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a href="#" class="text-red-600 hover:text-red-900">
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Ver todos os feeds -->
+        <div class="px-6 py-4 border-t border-gray-200">
+          <a href="admin-feeds-listar.html" class="text-sky-500 hover:text-sky-700 font-medium text-sm">
+            Ver todos os feeds <i class="fas fa-arrow-right ml-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Próximos Eventos -->
+  <section class="py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-xl font-bold text-gray-800">Próximos Eventos</h2>
+        <a href="admin-eventos-cadastrar.html" class="px-4 py-2 bg-gradient-to-r from-pink-400 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 flex items-center text-sm">
+          <i class="fas fa-plus mr-2"></i> Adicionar Evento
+        </a>
+      </div>
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="min-w-full divide-y divide-gray-200">
+            <!-- Linha do cabeçalho da lista de eventos-->
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Título
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Local
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Data
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Horário
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Status
+                </th>
+                <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Ações
+                </th>
+              </tr>
+            </thead>
+            <!-- Modelos para a lista de eventos -->
+            <tbody class="bg-white divide-y divide-gray-200">
+              <!-- Linha 1 -->
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm font-medium text-gray-900">Feira de Artesanato em São Paulo</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900">Parque Ibirapuera, São Paulo - SP</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  15/06/2025
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  10:00 - 20:00
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    Confirmado
+                  </span>
+                </td>
+                <!--ações-->
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <a href="admin-eventos-visualizar.html" class="text-sky-600 hover:text-sky-900 mr-3">
+                    <i class="fas fa-eye"></i>
+                  </a>
+                  <a href="admin-eventos-editar.html" class="text-yellow-600 hover:text-yellow-900 mr-3">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a href="#" class="text-red-600 hover:text-red-900">
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                </td>
+              </tr>
+              <!-- Linha 2 -->
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm font-medium text-gray-900">Workshop de Cerâmica</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900">Ateliê Maria Silva, São Paulo - SP</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  10/06/2025
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  14:00 - 17:00
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                    Pendente
+                  </span>
+                </td>
+                <!--ações-->
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <a href="#" class="text-sky-600 hover:text-sky-900 mr-3">
+                    <i class="fas fa-eye"></i>
+                  </a>
+                  <a href="#" class="text-yellow-600 hover:text-yellow-900 mr-3">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a href="#" class="text-red-600 hover:text-red-900">
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                </td>
+              </tr>
+              <!-- Linha 3 -->
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm font-medium text-gray-900">Exposição "Mãos que Criam"</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900">Museu de Arte, Belo Horizonte - MG</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  15/08/2025
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  09:00 - 20:00
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    Confirmado
+                  </span>
+                </td>
+                <!-- ações -->
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <a href="#" class="text-sky-600 hover:text-sky-900 mr-3">
+                    <i class="fas fa-eye"></i>
+                  </a>
+                  <a href="#" class="text-yellow-600 hover:text-yellow-900 mr-3">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a href="#" class="text-red-600 hover:text-red-900">
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Ver todos os eventos -->
+        <div class="px-6 py-4 border-t border-gray-200">
+          <a href="admin-eventos-listar.html" class="text-pink-500 hover:text-pink-700 font-medium text-sm">
+            Ver todos os eventos <i class="fas fa-arrow-right ml-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Últimos Usuários Cadastrados -->
+  <section class="py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-xl font-bold text-gray-800">Últimos Usuários Cadastrados</h2>
+        <a href="admin-usuarios-cadastrar.html" class="px-4 py-2 bg-gradient-to-r from-green-400 to-green-500 text-white rounded-full font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 flex items-center text-sm">
+          <i class="fas fa-user-plus mr-2"></i> Adicionar Usuário
+        </a>
+      </div>
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="min-w-full divide-y divide-gray-200">
+            <!-- Linha do cabeçalho da lista de usuarios -->
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Nome
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Email
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Tipo
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Data de Cadastro
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Status
+                </th>
+                <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Ações
+                </th>
+              </tr>
+            </thead>
+            <!-- Modelos para a lista de usuarios -->
+            <tbody class="bg-white divide-y divide-gray-200">
+              <!-- Linha 1 -->
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 h-10 w-10 bg-pink-200 rounded-full flex items-center justify-center text-pink-500 font-bold">
+                    MS
+                  </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">Maria Silva</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900">maria.silva@email.com</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-sky-100 text-sky-800">
+                    Artesão
+                  </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  15/05/2025
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    Ativo
+                  </span>
+                </td>
+                <!-- ações -->
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <a href="admin-usuarios-visualizar.html" class="text-sky-600 hover:text-sky-900 mr-3">
+                    <i class="fas fa-eye"></i>
+                  </a>
+                  <a href="admin-usuarios-editar.html" class="text-yellow-600 hover:text-yellow-900 mr-3">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a href="#" class="text-red-600 hover:text-red-900">
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                </td>
+              </tr>
+              <!-- Linha 2 -->
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 h-10 w-10 bg-sky-200 rounded-full flex items-center justify-center text-sky-500 font-bold">
+                    JC
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">João Costa</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900">joao.costa@email.com</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-sky-100 text-sky-800">
+                    Artesão
+                  </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  12/05/2025
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    Ativo
+                  </span>
+                </td>
+                <!-- ações -->
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <a href="#" class="text-sky-600 hover:text-sky-900 mr-3">
+                    <i class="fas fa-eye"></i>
+                  </a>
+                  <a href="#" class="text-yellow-600 hover:text-yellow-900 mr-3">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a href="#" class="text-red-600 hover:text-red-900">
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                </td>
+              </tr>
+              <!-- Linha 3 -->
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 h-10 w-10 bg-yellow-200 rounded-full flex items-center justify-center text-yellow-500 font-bold">
+                    AP
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">Ana Pereira</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900">ana.pereira@email.com</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-sky-100 text-sky-800">
+                    Artesão
+                  </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  10/05/2025
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    Ativo
+                  </span>
+                </td>
+                <!-- ações -->
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <a href="#" class="text-sky-600 hover:text-sky-900 mr-3">
+                    <i class="fas fa-eye"></i>
+                  </a>
+                  <a href="#" class="text-yellow-600 hover:text-yellow-900 mr-3">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a href="#" class="text-red-600 hover:text-red-900">
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Ver todos os usuarios -->
+        <div class="px-6 py-4 border-t border-gray-200">
+          <a href="admin-usuarios-listar.html" class="text-green-500 hover:text-green-700 font-medium text-sm">
+            Ver todos os usuários <i class="fas fa-arrow-right ml-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-sky-200 text-gray-700 py-8 mt-auto">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-center items-center">
+        <div class="mb-4 md:mb-0">
+          <p>&copy; <script>document.write(new Date().getFullYear())</script> DoArte. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+</body>
+</html>

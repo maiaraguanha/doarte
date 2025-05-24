@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <title>Eventos - DoArte</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/script.js" defer></script>
+</head>
+
+<body class="min-h-screen flex flex-col bg-stone-50">
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3">
+      <div class="flex justify-between items-center">
+        <!-- Logotipo -->        
+        <a href="index.html" class="flex items-center space-x-2 group">
+          <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-sky-300 to-pink-300 overflow-hidden">
+            <img src="../images/favicon.png" alt="Logo" class="w-full h-full object-cover">
+          </div>
+          <div class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-pink-400 font-bold text-xl sm:text-2xl group-hover:scale-105 transition-transform duration-300">
+            DoArte
+          </div>
+        </a>
+
+        <!-- Menu para desktop -->
+        <nav class="hidden md:flex items-center space-x-1">
+          <a href="index.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Início
+          </a>
+          <a href="artesaos.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Artesãos
+          </a>
+          <a href="pedidos.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Pedidos
+          </a>
+          <a href="feeds.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Feeds
+          </a>
+          <a href="eventos.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Eventos
+          </a>
+          <div class="h-6 w-px bg-gray-200 mx-2"></div>
+          <div class="flex items-center space-x-2">
+            <a href="register.html" class="px-4 py-1.5 sm:px-5 sm:py-2 text-white bg-gradient-to-r from-sky-400 to-pink-400 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+              <i class="fas fa-user-plus mr-2"></i> Registar-se
+            </a>
+              <a href="login.html" class="px-4 py-1.5 sm:px-5 sm:py-2 text-white bg-gradient-to-r from-sky-400 to-pink-400 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+              <i class="fas fa-user mr-2"></i> Entrar
+            </a>
+          </div>
+        </nav>
+
+        <!-- Botão do menu mobile -->
+        <button id="menuToggle" class="md:hidden text-gray-700 focus:outline-none" onclick="toggleMenu()">
+          <i class="fas fa-bars text-xl menu-icon"></i>
+        </button>
+      </div>
+
+      <!-- Menu mobile -->
+      <nav id="mobileMenu" class="md:hidden mt-4 space-y-3 pb-3">
+        <a href="index.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Início</a>
+        <a href="artesaos.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Artesãos</a>
+        <a href="pedidos.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Pedidos</a>
+        <a href="feeds.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Feeds</a>
+        <a href="eventos.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Eventos</a>
+        <div class="pt-2 border-t border-gray-100 mt-2"></div>
+        <div class="flex flex-col sm:flex-row gap-2 mt-4">
+          <a href="register.html" class="block text-white bg-gradient-to-r from-sky-400 to-pink-400 px-4 py-2 rounded-lg font-medium transition duration-300 text-center flex-1">
+            <i class="fas fa-user-plus mr-2"></i>Registrar-se
+          </a>
+          <a href="login.html" class="block text-white bg-gradient-to-r from-sky-400 to-pink-400 px-4 py-2 rounded-lg font-medium transition duration-300 text-center flex-1">
+            <i class="fas fa-user mr-2"></i>Entrar
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <div class="container mx-auto px-4 py-8">
+    <!-- Cabeçalho da Página -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+      <div>
+        <h1 class="text-3xl font-bold text-gray-800">Eventos</h1>
+        <p class="text-gray-600 mt-1">Confira os próximos eventos de artesanato e participe!</p>
+      </div>
+      
+      <div class="flex flex-col sm:flex-row gap-4">
+        <div class="relative">
+          <input type="text" placeholder="Buscar eventos..." class="pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300 w-full sm:w-64">
+          <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Filtros -->
+    <div class="bg-white rounded-xl shadow-sm p-4 mb-8">
+      <div class="flex flex-wrap gap-4">
+        <div class="flex-grow min-w-[200px]">
+          <label for="tipo" class="block text-sm font-medium text-gray-700 mb-1">Tipo de Evento</label>
+          <select id="tipo" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300">
+            <option value="">Todos os tipos</option>
+            <option value="feira">Feira</option>
+            <option value="workshop">Workshop</option>
+            <option value="exposicao">Exposição</option>
+            <option value="curso">Curso</option>
+          </select>
+        </div>
+        
+        <div class="flex-grow min-w-[200px]">
+          <label for="local" class="block text-sm font-medium text-gray-700 mb-1">Localização</label>
+          <select id="local" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300">
+            <option value="">Todas as localizações</option>
+            <option value="sp">São Paulo</option>
+            <option value="rj">Rio de Janeiro</option>
+            <option value="mg">Belo Horizonte</option>
+            <option value="online">Online</option>
+          </select>
+        </div>
+        
+        <div class="flex-grow min-w-[200px]">
+          <label for="data" class="block text-sm font-medium text-gray-700 mb-1">Data</label>
+          <select id="data" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300">
+            <option value="">Qualquer data</option>
+            <option value="hoje">Hoje</option>
+            <option value="semana">Esta semana</option>
+            <option value="mes">Este mês</option>
+            <option value="proximo">Próximo mês</option>
+          </select>
+        </div>
+        
+        <div class="flex-grow min-w-[200px] flex items-end">
+          <button class="w-full px-4 py-2 bg-sky-100 text-sky-600 rounded-lg hover:bg-sky-200 transition duration-300">
+            <i class="fas fa-filter mr-2"></i> Filtrar
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Lista de Eventos -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Evento 1 -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
+        <div class="relative h-48">
+          <img 
+            src="https://placehold.co/600x400/BFD7ED/FFFFFF?text=Feira+de+Artesanato" 
+            alt="Feira de Artesanato" 
+            class="w-full h-full object-cover"
+          >
+          <div class="absolute top-4 right-4 bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+            15 Jun
+          </div>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800 mb-1">Feira de Artesanato DoArte</h3>
+          <div class="flex items-center text-gray-600 text-sm mb-3">
+            <i class="fas fa-map-marker-alt text-pink-400 mr-2"></i>
+            Parque Ibirapuera, São Paulo - SP
+          </div>
+          <div class="flex items-center text-gray-600 text-sm mb-3">
+            <i class="fas fa-clock text-pink-400 mr-2"></i>
+            10:00 - 18:00
+          </div>
+          <p class="text-gray-600 text-sm mb-4">
+            A maior feira de artesanato do Brasil chega a São Paulo. Confira a programação completa e garanta seu lugar.
+          </p>
+          <a href="eventos-visualizar.html" class="inline-block px-4 py-2 bg-sky-100 text-sky-600 rounded-lg hover:bg-sky-200 transition duration-300">
+            Saiba mais
+          </a>
+        </div>
+      </div>
+      
+      <!-- Evento 2 -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
+        <div class="relative h-48">
+          <img 
+            src="https://placehold.co/600x400/F9C6D1/FFFFFF?text=Workshop+de+Cerâmica" 
+            alt="Workshop de Cerâmica" 
+            class="w-full h-full object-cover"
+          >
+          <div class="absolute top-4 right-4 bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+            10 Jun
+          </div>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800 mb-1">Workshop de Cerâmica</h3>
+          <div class="flex items-center text-gray-600 text-sm mb-3">
+            <i class="fas fa-map-marker-alt text-pink-400 mr-2"></i>
+            Centro Cultural, Rio de Janeiro - RJ
+          </div>
+          <div class="flex items-center text-gray-600 text-sm mb-3">
+            <i class="fas fa-clock text-pink-400 mr-2"></i>
+            14:00 - 17:00
+          </div>
+          <p class="text-gray-600 text-sm mb-4">
+            Aprenda técnicas básicas de cerâmica com a artesã Maria Silva. Materiais inclusos.
+          </p>
+          <a href="#" class="inline-block px-4 py-2 bg-sky-100 text-sky-600 rounded-lg hover:bg-sky-200 transition duration-300">
+            Saiba mais
+          </a>
+        </div>
+      </div>
+      
+      <!-- Evento 3 -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
+        <div class="relative h-48">
+          <img 
+            src="https://placehold.co/600x400/FFF2CC/FFFFFF?text=Exposição+Artesanal" 
+            alt="Exposição Artesanal" 
+            class="w-full h-full object-cover"
+          >
+          <div class="absolute top-4 right-4 bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+            15 Ago
+          </div>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800 mb-1">Exposição "Mãos que Criam"</h3>
+          <div class="flex items-center text-gray-600 text-sm mb-3">
+            <i class="fas fa-map-marker-alt text-pink-400 mr-2"></i>
+            Museu de Arte, Belo Horizonte - MG
+          </div>
+          <div class="flex items-center text-gray-600 text-sm mb-3">
+            <i class="fas fa-clock text-pink-400 mr-2"></i>
+            09:00 - 20:00
+          </div>
+          <p class="text-gray-600 text-sm mb-4">
+            Venha conhecer as mais belas peças de arte em madeira.
+          </p>
+          <a href="#" class="inline-block px-4 py-2 bg-sky-100 text-sky-600 rounded-lg hover:bg-sky-200 transition duration-300">
+            Saiba mais
+          </a>
+        </div>
+      </div>
+      
+      <!-- Evento 4 -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
+        <div class="relative h-48">
+          <img 
+            src="https://placehold.co/600x400/D8F3DC/FFFFFF?text=Curso+de+Macramê" 
+            alt="Curso de Macramê" 
+            class="w-full h-full object-cover"
+          >
+          <div class="absolute top-4 right-4 bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+            22 Ago
+          </div>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800 mb-1">Curso de Macramê</h3>
+          <div class="flex items-center text-gray-600 text-sm mb-3">
+            <i class="fas fa-map-marker-alt text-pink-400 mr-2"></i>
+            Centro de Artesanato, Curitiba - PR
+          </div>
+          <div class="flex items-center text-gray-600 text-sm mb-3">
+            <i class="fas fa-clock text-pink-400 mr-2"></i>
+            13:00 - 17:00
+          </div>
+          <p class="text-gray-600 text-sm mb-4">
+            Aprenda a técnica de macramê e crie peças decorativas para sua casa.
+          </p>
+          <a href="#" class="inline-block px-4 py-2 bg-sky-100 text-sky-600 rounded-lg hover:bg-sky-200 transition duration-300">
+            Saiba mais
+          </a>
+        </div>
+      </div>
+      
+      <!-- Evento 5 -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
+        <div class="relative h-48">
+          <img 
+            src="https://placehold.co/600x400/BFD7ED/FFFFFF?text=Workshop+Online" 
+            alt="Workshop Online" 
+            class="w-full h-full object-cover"
+          >
+          <div class="absolute top-4 right-4 bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+            12 Jul
+          </div>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800 mb-1">Workshop Online de Bordado</h3>
+          <div class="flex items-center text-gray-600 text-sm mb-3">
+            <i class="fas fa-map-marker-alt text-pink-400 mr-2"></i>
+            Online (Zoom)
+          </div>
+          <div class="flex items-center text-gray-600 text-sm mb-3">
+            <i class="fas fa-clock text-pink-400 mr-2"></i>
+            19:00 - 21:00
+          </div>
+          <p class="text-gray-600 text-sm mb-4">
+            Workshop online para aprender técnicas de bordado livre com materiais que você tem em casa.
+          </p>
+          <a href="#" class="inline-block px-4 py-2 bg-sky-100 text-sky-600 rounded-lg hover:bg-sky-200 transition duration-300">
+            Saiba mais
+          </a>
+        </div>
+      </div>
+      
+      <!-- Evento 6 -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
+        <div class="relative h-48">
+          <img 
+            src="https://placehold.co/600x400/F9C6D1/FFFFFF?text=Feira+Artesanal" 
+            alt="Feira Artesanal" 
+            class="w-full h-full object-cover"
+          >
+          <div class="absolute top-4 right-4 bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+            18 Set
+          </div>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800 mb-1">Feira Artesanal de Primavera</h3>
+          <div class="flex items-center text-gray-600 text-sm mb-3">
+            <i class="fas fa-map-marker-alt text-pink-400 mr-2"></i>
+            Praça das Artes, Salvador - BA
+          </div>
+          <div class="flex items-center text-gray-600 text-sm mb-3">
+            <i class="fas fa-clock text-pink-400 mr-2"></i>
+            09:00 - 21:00
+          </div>
+          <p class="text-gray-600 text-sm mb-4">
+            Feira com artesãos locais celebrando a chegada da primavera com peças exclusivas.
+          </p>
+          <a href="#" class="inline-block px-4 py-2 bg-sky-100 text-sky-600 rounded-lg hover:bg-sky-200 transition duration-300">
+            Saiba mais
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Paginação -->
+    <div class="mt-10 flex justify-center">
+      <nav class="flex items-center space-x-2">
+        <a href="#" class="px-3 py-2 rounded-lg border border-gray-300 text-gray-500 hover:bg-sky-50 hover:text-sky-600 hover:border-sky-300">
+          <i class="fas fa-chevron-left"></i>
+        </a>
+        <a href="#" class="px-4 py-2 rounded-lg bg-sky-500 text-white font-medium">1</a>
+        <a href="#" class="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-sky-50 hover:text-sky-600 hover:border-sky-300">2</a>
+        <a href="#" class="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-sky-50 hover:text-sky-600 hover:border-sky-300">3</a>
+        <span class="px-4 py-2 text-gray-500">...</span>
+        <a href="#" class="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-sky-50 hover:text-sky-600 hover:border-sky-300">8</a>
+        <a href="#" class="px-3 py-2 rounded-lg border border-gray-300 text-gray-500 hover:bg-sky-50 hover:text-sky-600 hover:border-sky-300">
+          <i class="fas fa-chevron-right"></i>
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-sky-200 text-gray-700 py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">DoArte</h3>
+          <p class="mb-4">
+            (Doar + Arte)
+            <br>Transformando doações em criações e amor.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+              <i class="fab fa-facebook-f"></i>
+              <span class="sr-only">Facebook</span>
+            </a>
+            <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+              <i class="fab fa-instagram"></i>
+              <span class="sr-only">Instagram</span>
+            </a>
+            <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+              <i class="fab fa-twitter"></i>
+              <span class="sr-only">Twitter</span>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Links Rápidos</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="index.html" class="hover:text-sky-500 transition-colors duration-300">
+                Início
+              </a>
+            </li>
+            <li>
+              <a href="artesaos.html" class="hover:text-sky-500 transition-colors duration-300">
+                Artesãos
+              </a>
+            </li>
+            <li>
+              <a href="pedidos.html" class="hover:text-sky-500 transition-colors duration-300">
+                Pedidos
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+                Como Ajudar
+              </a>
+            </li>
+            <li>
+              <a href="register.html" class="hover:text-sky-500 transition-colors duration-300">
+                Seja um Artesão
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Categorias</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+                Cerâmica
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+                Têxtil
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+                Madeira
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+                Joalheria
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+                Cestaria
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contato</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <span class="mr-2">📍</span>
+              <span>Rua das Artes, 123, São Paulo - SP</span>
+            </li>
+            <li class="flex items-start">
+              <span class="mr-2">📱</span>
+              <span>(11) 98765-4321</span>
+            </li>
+            <li class="flex items-start">
+              <span class="mr-2">✉️</span>
+              <span>contato@doarte.com.br</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-sky-300 mt-8 pt-8 text-center">
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> DoArte. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

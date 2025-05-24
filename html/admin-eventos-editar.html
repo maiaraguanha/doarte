@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <title>Editar Evento - DoArte</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/script.js" defer></script>
+</head>
+
+<body class="min-h-screen flex flex-col bg-stone-50">
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3">
+      <div class="flex justify-between items-center">
+        <!-- Logotipo -->        
+        <a href="admin-index.html" class="flex items-center space-x-2 group">
+          <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-sky-300 to-pink-300 overflow-hidden">
+            <img src="../images/favicon.png" alt="Logo" class="w-full h-full object-cover">
+          </div>
+          <div class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-pink-400 font-bold text-xl sm:text-2xl group-hover:scale-105 transition-transform duration-300">
+            DoArte
+          </div>
+        </a>
+
+        <!-- Menu para desktop -->
+        <nav class="hidden md:flex items-center space-x-1">
+          <a href="admin-index.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Início
+          </a>
+          <a href="admin-dashboard.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Dashboard
+          </a>
+          <a href="admin-artesaos.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Artesãos
+          </a>
+          <a href="admin-pedidos.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Pedidos
+          </a>
+          <a href="admin-feeds.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Feeds
+          </a>
+          <a href="admin-eventos.html" class="nav-link px-4 py-2 font-medium text-gray-700 hover:text-sky-500 transition-colors duration-300">
+            Eventos
+          </a>
+          <div class="h-6 w-px bg-gray-200 mx-2"></div>
+          <div class="flex items-center space-x-2">
+            <a href="#" class="px-4 py-1.5 sm:px-5 sm:py-2 text-white bg-gradient-to-r from-sky-400 to-pink-400 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+              <i class="fas fa-user mr-1"></i> Administrador
+            </a>
+            <a href="index.html" class="px-4 py-1.5 sm:px-5 sm:py-2 text-white bg-gradient-to-r from-rose-400 to-red-400 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+              <i class="fas fa-sign-out-alt mr-1"></i> Sair
+            </a>
+          </div>
+        </nav>
+
+        <!-- Botão do menu mobile -->
+        <button id="menuToggle" class="md:hidden text-gray-700 focus:outline-none" onclick="toggleMenu()">
+          <i class="fas fa-bars text-xl menu-icon"></i>
+        </button>
+      </div>
+
+      <!-- Menu mobile -->
+      <nav id="mobileMenu" class="md:hidden mt-4 space-y-3 pb-3">
+        <a href="admin-index.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Início</a>
+        <a href="admin-dashboard.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Dashboard</a>
+        <a href="admin-artesaos.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Artesãos</a>
+        <a href="admin-pedidos.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Pedidos</a>
+        <a href="admin-feeds.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Feeds</a>
+        <a href="admin-eventos.html" class="block text-gray-700 hover:text-sky-400 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">Eventos</a>
+        <div class="pt-2 border-t border-gray-100 mt-2"></div>
+        <div class="flex flex-col sm:flex-row gap-2 mt-4">
+          <a href="#" class="block text-white bg-gradient-to-r from-sky-400 to-pink-400 px-4 py-2 rounded-lg font-medium transition duration-300 text-center flex-1">
+            <i class="fas fa-user mr-2"></i>Administrador
+          </a>
+          <a href="index.html" class="block text-white bg-gradient-to-r from-rose-400 to-red-400 px-4 py-2 rounded-lg font-medium transition duration-300 text-center flex-1">
+            <i class="fas fa-sign-out-alt mr-2"></i>Sair
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <div class="container mx-auto px-4 py-8">
+    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+      <div class="p-6 border-b border-gray-200">
+        <h1 class="text-2xl font-bold text-gray-800">Editar Evento</h1>
+        <p class="text-gray-600 mt-1">Atualize as informações do evento.</p>
+      </div>
+      
+      <form id="eventoForm" class="p-6" novalidate>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Informações Básicas -->
+          <div class="space-y-6 md:col-span-2">
+            <h2 class="text-xl font-semibold text-gray-800 border-b pb-2">Informações Básicas</h2>
+            
+            <div>
+              <label for="titulo" class="block text-sm font-medium text-gray-700 mb-1">Título do Evento *</label>
+              <input type="text" id="titulo" name="titulo" required 
+                class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300"
+                value="Feira de Artesanato em São Paulo">
+              <p class="error-message text-red-500 text-xs mt-1 hidden">Título do evento é obrigatório</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="categoria" class="block text-sm font-medium text-gray-700 mb-1">Categoria *</label>
+                <select id="categoria" name="categoria" required 
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300">
+                  <option value="">Selecione uma categoria</option>
+                  <option value="feira" selected>Feira</option>
+                  <option value="workshop">Workshop</option>
+                  <option value="exposicao">Exposição</option>
+                  <option value="curso">Curso</option>
+                  <option value="palestra">Palestra</option>
+                  <option value="outro">Outro</option>
+                </select>
+                <p class="error-message text-red-500 text-xs mt-1 hidden">Categoria é obrigatória</p>
+              </div>
+              
+              <div>
+                <label for="organizador" class="block text-sm font-medium text-gray-700 mb-1">Organizador *</label>
+                <input type="text" id="organizador" name="organizador" required 
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300"
+                  value="DoArte">
+                <p class="error-message text-red-500 text-xs mt-1 hidden">Organizador é obrigatório</p>
+              </div>
+            </div>
+            <!-- Descrição -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Descrição do Evento *</label>
+              <div class="editor-toolbar">
+                <button type="button" onclick="formatText('bold')"><i class="fas fa-bold"></i></button>
+                <button type="button" onclick="formatText('italic')"><i class="fas fa-italic"></i></button>
+                <button type="button" onclick="formatText('underline')"><i class="fas fa-underline"></i></button>
+                <button type="button" onclick="formatList('ul')"><i class="fas fa-list-ul"></i></button>
+                <button type="button" onclick="formatList('ol')"><i class="fas fa-list-ol"></i></button>
+                <button type="button" onclick="formatText('h2')"><i class="fas fa-heading"></i></button>
+                <button type="button" onclick="formatText('link')"><i class="fas fa-link"></i></button>
+              </div>
+              <div class="editor-content" id="descricao" contenteditable="true">
+                <p>A maior feira de artesanato do Brasil chega a São Paulo. Confira a programação completa e garanta seu lugar.</p>
+                <p>Mais de 200 expositores de todo o país estarão presentes com o melhor do artesanato brasileiro. Haverá também oficinas, palestras e apresentações culturais.</p>
+                <p><strong>Destaques da programação:</strong></p>
+                <ul>
+                  <li>Exposição de cerâmica regional</li>
+                  <li>Workshop de técnicas de tecelagem</li>
+                  <li>Demonstração de esculturas em madeira</li>
+                  <li>Oficina de joias artesanais</li>
+                  <li>Apresentações de música regional</li>
+                </ul>
+                <p>Não perca esta oportunidade de conhecer e adquirir peças únicas diretamente dos artesãos.</p>
+                <p><strong>Entrada gratuita.</strong></p>
+              </div>
+              <input type="hidden" id="descricaoHidden" name="descricao">
+              <p class="error-message text-red-500 text-xs mt-1 hidden">Descrição é obrigatória</p>
+            </div>
+            <!-- Tags -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Tags</label>
+              <div class="flex mb-3">
+                <input type="text" id="novaTag" 
+                  class="flex-grow px-4 py-2 rounded-l-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300"
+                  placeholder="Digite uma nova tag...">
+                <button type="button" id="adicionarTag" 
+                  class="px-4 py-2 bg-sky-400 text-white rounded-r-lg hover:bg-sky-500 transition duration-300">
+                  <i class="fas fa-plus mr-1"></i> Adicionar
+                </button>
+              </div>
+              <!-- tags adicionadas -->
+              <div id="tagsSelecionadas" class="flex flex-wrap gap-2 mb-3">
+                <div class="px-3 py-1 bg-sky-100 text-sky-600 rounded-full text-sm flex items-center">
+                  Artesanato
+                  <button type="button" class="ml-2 text-sky-500 hover:text-sky-700 focus:outline-none" data-tag="Artesanato">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <div class="px-3 py-1 bg-sky-100 text-sky-600 rounded-full text-sm flex items-center">
+                  Feira
+                  <button type="button" class="ml-2 text-sky-500 hover:text-sky-700 focus:outline-none" data-tag="Feira">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <div class="px-3 py-1 bg-sky-100 text-sky-600 rounded-full text-sm flex items-center">
+                  São Paulo
+                  <button type="button" class="ml-2 text-sky-500 hover:text-sky-700 focus:outline-none" data-tag="São Paulo">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <div class="px-3 py-1 bg-sky-100 text-sky-600 rounded-full text-sm flex items-center">
+                  Cultura
+                  <button type="button" class="ml-2 text-sky-500 hover:text-sky-700 focus:outline-none" data-tag="Cultura">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              
+              <input type="hidden" id="todasTags" name="todasTags" value='["Artesanato","Feira","São Paulo","Cultura"]'>
+            </div>
+            
+            <div class="flex items-center">
+              <input type="checkbox" id="destaque" name="destaque" class="h-4 w-4 text-sky-400 focus:ring-sky-300 border-gray-300 rounded" checked>
+              <label for="destaque" class="ml-2 block text-sm text-gray-700">Destacar evento na página inicial</label>
+            </div>
+          </div>
+          
+          <!-- Data e Horário -->
+          <div class="space-y-6">
+            <h2 class="text-xl font-semibold text-gray-800 border-b pb-2">Data e Horário</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="dataInicio" class="block text-sm font-medium text-gray-700 mb-1">Data de Início *</label>
+                <input type="date" id="dataInicio" name="dataInicio" required 
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300"
+                  value="2025-06-15">
+                <p class="error-message text-red-500 text-xs mt-1 hidden">Data de início é obrigatória</p>
+              </div>
+              
+              <div>
+                <label for="dataFim" class="block text-sm font-medium text-gray-700 mb-1">Data de Término *</label>
+                <input type="date" id="dataFim" name="dataFim" required 
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300"
+                  value="2025-06-18">
+                <p class="error-message text-red-500 text-xs mt-1 hidden">Data de término é obrigatória</p>
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="horaInicio" class="block text-sm font-medium text-gray-700 mb-1">Horário de Início *</label>
+                <input type="time" id="horaInicio" name="horaInicio" required 
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300"
+                  value="10:00">
+                <p class="error-message text-red-500 text-xs mt-1 hidden">Horário de início é obrigatório</p>
+              </div>
+              
+              <div>
+                <label for="horaFim" class="block text-sm font-medium text-gray-700 mb-1">Horário de Término *</label>
+                <input type="time" id="horaFim" name="horaFim" required 
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300"
+                  value="20:00">
+                <p class="error-message text-red-500 text-xs mt-1 hidden">Horário de término é obrigatório</p>
+              </div>
+            </div>
+            
+            <div>
+              <label for="status" class="block text-sm font-medium text-gray-700 mb-1">Status do Evento *</label>
+              <select id="status" name="status" required 
+                class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300">
+                <option value="">Selecione um status</option>
+                <option value="ativo" selected>Ativo</option>
+                <option value="cancelado">Cancelado</option>
+                <option value="adiado">Adiado</option>
+                <option value="concluido">Concluído</option>
+              </select>
+              <p class="error-message text-red-500 text-xs mt-1 hidden">Status é obrigatório</p>
+            </div>
+          </div>
+          
+          <!-- Localização -->
+          <div class="space-y-6">
+            <h2 class="text-xl font-semibold text-gray-800 border-b pb-2">Localização</h2>
+            
+            <div>
+              <label for="local" class="block text-sm font-medium text-gray-700 mb-1">Nome do Local *</label>
+              <input type="text" id="local" name="local" required 
+                class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300"
+                value="Parque Ibirapuera">
+              <p class="error-message text-red-500 text-xs mt-1 hidden">Nome do local é obrigatório</p>
+            </div>
+            
+            <div>
+              <label for="endereco" class="block text-sm font-medium text-gray-700 mb-1">Endereço *</label>
+              <input type="text" id="endereco" name="endereco" required 
+                class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300"
+                value="Av. Pedro Álvares Cabral, s/n - Vila Mariana">
+              <p class="error-message text-red-500 text-xs mt-1 hidden">Endereço é obrigatório</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="cidade" class="block text-sm font-medium text-gray-700 mb-1">Cidade *</label>
+                <input type="text" id="cidade" name="cidade" required 
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300"
+                  value="São Paulo">
+                <p class="error-message text-red-500 text-xs mt-1 hidden">Cidade é obrigatória</p>
+              </div>
+              
+              <div>
+                <label for="estado" class="block text-sm font-medium text-gray-700 mb-1">Estado *</label>
+                <select id="estado" name="estado" required 
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300">
+                  <option value="">Selecione um estado</option>
+                  <option value="AC">Acre</option>
+                  <option value="AL">Alagoas</option>
+                  <option value="AP">Amapá</option>
+                  <option value="AM">Amazonas</option>
+                  <option value="BA">Bahia</option>
+                  <option value="CE">Ceará</option>
+                  <option value="DF">Distrito Federal</option>
+                  <option value="ES">Espírito Santo</option>
+                  <option value="GO">Goiás</option>
+                  <option value="MA">Maranhão</option>
+                  <option value="MT">Mato Grosso</option>
+                  <option value="MS">Mato Grosso do Sul</option>
+                  <option value="MG">Minas Gerais</option>
+                  <option value="PA">Pará</option>
+                  <option value="PB">Paraíba</option>
+                  <option value="PR">Paraná</option>
+                  <option value="PE">Pernambuco</option>
+                  <option value="PI">Piauí</option>
+                  <option value="RJ">Rio de Janeiro</option>
+                  <option value="RN">Rio Grande do Norte</option>
+                  <option value="RS">Rio Grande do Sul</option>
+                  <option value="RO">Rondônia</option>
+                  <option value="RR">Roraima</option>
+                  <option value="SC">Santa Catarina</option>
+                  <option value="SP" selected>São Paulo</option>
+                  <option value="SE">Sergipe</option>
+                  <option value="TO">Tocantins</option>
+                </select>
+                <p class="error-message text-red-500 text-xs mt-1 hidden">Estado é obrigatório</p>
+              </div>
+            </div>
+            
+            <div>
+              <label for="cep" class="block text-sm font-medium text-gray-700 mb-1">CEP</label>
+              <input type="text" id="cep" name="cep" 
+                class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300"
+                value="04094-050">
+            </div>
+          </div>
+          
+          <!-- Imagens -->
+          <div class="space-y-6 md:col-span-2">
+            <h2 class="text-xl font-semibold text-gray-800 border-b pb-2">Imagens</h2>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Imagem Principal *</label>
+              <div class="flex items-center space-x-4">
+                <div class="w-32 h-32 rounded-lg overflow-hidden bg-gray-100 border border-gray-300">
+                  <img id="imagemPrincipalPreview" src="https://placehold.co/600x400/BFD7ED/FFFFFF?text=Feira+de+Artesanato" alt="Imagem principal do evento" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-1">
+                  <input type="file" id="imagemPrincipal" name="imagemPrincipal" accept="image/*" class="hidden" onchange="previewImagem(this, 'imagemPrincipalPreview')">
+                  <label for="imagemPrincipal" class="px-4 py-2 bg-sky-100 text-sky-600 rounded-lg hover:bg-sky-200 transition duration-300 cursor-pointer inline-block">
+                    <i class="fas fa-upload mr-2"></i> Alterar Imagem
+                  </label>
+                  <p class="text-gray-500 text-xs mt-1">Tamanho recomendado: 1200x600px. Máximo 2MB.</p>
+                </div>
+              </div>
+              <p class="error-message text-red-500 text-xs mt-1 hidden">Imagem principal é obrigatória</p>
+            </div> 
+            <!-- Galeria de imagens eventos -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Galeria de Imagens</label>
+              <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-4">
+                <!-- Imagem 1 -->
+                <div class="relative group">
+                  <div class="aspect-square rounded-lg overflow-hidden bg-gray-100 border border-gray-300">
+                    <img src="https://placehold.co/150x150/BFD7ED/FFFFFF?text=1" alt="Imagem da galeria" class="w-full h-full object-cover">
+                  </div>
+                  <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                    <button type="button" class="text-white hover:text-red-300 transition-colors duration-300" onclick="removerImagem(this)">
+                      <i class="fas fa-trash-alt text-xl"></i>
+                    </button>
+                  </div>
+                </div>
+                
+                <!-- Imagem 2 -->
+                <div class="relative group">
+                  <div class="aspect-square rounded-lg overflow-hidden bg-gray-100 border border-gray-300">
+                    <img src="https://placehold.co/150x150/BFD7ED/FFFFFF?text=2" alt="Imagem da galeria" class="w-full h-full object-cover">
+                  </div>
+                  <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                    <button type="button" class="text-white hover:text-red-300 transition-colors duration-300" onclick="removerImagem(this)">
+                      <i class="fas fa-trash-alt text-xl"></i>
+                    </button>
+                  </div>
+                </div>
+                
+                <!-- Imagem 3 -->
+                <div class="relative group">
+                  <div class="aspect-square rounded-lg overflow-hidden bg-gray-100 border border-gray-300">
+                    <img src="https://placehold.co/150x150/BFD7ED/FFFFFF?text=3" alt="Imagem da galeria" class="w-full h-full object-cover">
+                  </div>
+                  <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                    <button type="button" class="text-white hover:text-red-300 transition-colors duration-300" onclick="removerImagem(this)">
+                      <i class="fas fa-trash-alt text-xl"></i>
+                    </button>
+                  </div>
+                </div>
+                
+                <!-- Adicionar Nova Imagem -->
+                <div class="aspect-square rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors duration-300" onclick="document.getElementById('novaImagem').click()">
+                  <div class="text-center">
+                    <i class="fas fa-plus text-gray-400 text-xl"></i>
+                    <p class="text-gray-500 text-xs mt-1">Adicionar</p>
+                  </div>
+                </div>
+              </div>
+              <input type="file" id="novaImagem" name="novaImagem" accept="image/*" class="hidden" onchange="adicionarImagem(this)">
+              <p class="text-gray-500 text-xs">Você pode adicionar até 8 imagens para a galeria. Tamanho máximo: 2MB por imagem.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-end">
+          <a href="admin-index.html" class="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg font-medium hover:bg-gray-200 transition duration-300 text-center">
+            Cancelar
+          </a>
+          <button type="submit" class="px-6 py-3 bg-gradient-to-r from-pink-400 to-pink-500 text-white rounded-lg font-medium hover:from-pink-400 hover:to-pink-500 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+            Salvar Alterações
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-sky-200 text-gray-700 py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">DoArte</h3>
+          <p class="mb-4">
+            (Doar + Arte)
+            <br>Transformando doações em criações e amor.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+              <i class="fab fa-facebook-f"></i>
+              <span class="sr-only">Facebook</span>
+            </a>
+            <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+              <i class="fab fa-instagram"></i>
+              <span class="sr-only">Instagram</span>
+            </a>
+            <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+              <i class="fab fa-twitter"></i>
+              <span class="sr-only">Twitter</span>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Links Rápidos</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="admin-index.html" class="hover:text-sky-500 transition-colors duration-300">
+                Início
+              </a>
+            </li>
+            <li>
+              <a href="admin-artesaos.html" class="hover:text-sky-500 transition-colors duration-300">
+                Artesãos
+              </a>
+            </li>
+            <li>
+              <a href="admin-pedidos" class="hover:text-sky-500 transition-colors duration-300">
+                Pedidos
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+                Como Ajudar
+              </a>
+            </li>
+            <li>
+              <a href="register.html" class="hover:text-sky-500 transition-colors duration-300">
+                Seja um Artesão
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Categorias</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+                Cerâmica
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+                Têxtil
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+                Madeira
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+                Joalheria
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-sky-500 transition-colors duration-300">
+                Cestaria
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contato</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <span class="mr-2">📍</span>
+              <span>Rua das Artes, 123, São Paulo - SP</span>
+            </li>
+            <li class="flex items-start">
+              <span class="mr-2">📱</span>
+              <span>(11) 98765-4321</span>
+            </li>
+            <li class="flex items-start">
+              <span class="mr-2">✉️</span>
+              <span>contato@doarte.com.br</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-sky-300 mt-8 pt-8 text-center">
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> DoArte. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
