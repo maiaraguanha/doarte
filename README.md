@@ -18,8 +18,10 @@ Este projeto propõe uma solução para conectar doadores a artesãs e costureir
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="../css/style.css">
 <script src="../js/script.js" defer></script>
+```
+---
 
-📁 Estrutura de Pastas
+## 📁 Estrutura de Pastas
 
 📦 projeto/
 ├── 📁 css/
@@ -27,90 +29,104 @@ Este projeto propõe uma solução para conectar doadores a artesãs e costureir
 ├── 📁 images/
 └── 📁 js/
 
-👥 Perfis de Usuário
+---
 
-🛠️ Administrador
+# 👥 Perfis de Usuário
 
-** Funcionalidades: **
+---
 
-    - Painel de controle, gestão de artesãos, pedidos, feeds e eventos.
+## 🛠️ Administrador
 
-** Páginas HTML: **
+### Funcionalidades:
 
-    - admin-index.html
+- Painel de controle, gestão de artesãos, pedidos, feeds e eventos.
 
-    - admin-dashboard.html
+### Páginas HTML:
 
-    - admin-artesaos.html
+- admin-index.html
 
-    - admin-pedidos.html, admin-pedidos-cadastrar.html
+- admin-dashboard.html
 
-    - admin-feeds.html, admin-feeds-cadastrar.html, admin-feeds-editar.html, admin-feeds-visualizar.html
+- admin-artesaos.html
 
-    - admin-eventos.html, admin-eventos-cadastrar.html, admin-eventos-editar.html, admin-eventos-visualizar.html
+- admin-pedidos.html, admin-pedidos-cadastrar.html
 
-    - admin-usuarios.html, admin-usuarios-cadastrar.html, admin-usuarios-editar.html, admin-usuarios-visualizar.html
+- admin-feeds.html, admin-feeds-cadastrar.html, admin-feeds-editar.html, admin-feeds-visualizar.html
 
-👩‍🎨 Usuário Artesão
+- admin-eventos.html, admin-eventos-cadastrar.html, admin-eventos-editar.html, admin-eventos-visualizar.html
 
-** Funcionalidades: **
+- admin-usuarios.html, admin-usuarios-cadastrar.html, admin-usuarios-editar.html, admin-usuarios-visualizar.html
 
-    - Cadastro e gerenciamento de pedidos, eventos e feeds.
+---
 
-** Páginas HTML: **
+## 👩‍🎨 Usuário Artesão
 
-    - usuario-index.html
+### Funcionalidades:
 
-    - usuario-artesaos.html
+- Cadastro e gerenciamento de pedidos, eventos e feeds.
 
-    - usuario-pedidos.html, usuario-pedidos-cadastrar.html
+### Páginas HTML:
 
-    - usuario-feeds.html, usuario-feeds-cadastrar.html, usuario-feeds-editar.html, usuario-feeds-listar.html, usuario-feeds-visualizar.html
+- usuario-index.html
 
-    - usuario-eventos.html, usuario-eventos-visualizar.html
+- usuario-artesaos.html
 
-    - usuario-cadastrar.html, usuario-editar.html, usuario-visualizar.html
+- usuario-pedidos.html, usuario-pedidos-cadastrar.html
 
-👀 Usuário Não Cadastrado
+- usuario-feeds.html, usuario-feeds-cadastrar.html, usuario-feeds-editar.html, usuario-feeds-listar.html, usuario-feeds-visualizar.html
 
-** Funcionalidades: **
+- usuario-eventos.html, usuario-eventos-visualizar.html
 
-    - Acesso limitado à visualização de conteúdos.
+- usuario-cadastrar.html, usuario-editar.html, usuario-visualizar.html
 
-** Páginas HTML: **
+---
 
-    - index.html
+## 👀 Usuário Não Cadastrado
 
-    - artesaos.html
+### Funcionalidades:
 
-    - pedidos.html
+- Acesso limitado à visualização de conteúdos.
 
-    - feeds.html, feeds-visualizar.html
+### Páginas HTML:
 
-    - eventos.html, eventos-visualizar.html
+- index.html
 
-    - usuarios.html
+- artesaos.html
 
-🔐 Autenticação
+- pedidos.html
 
-** Páginas HTML: **
+- feeds.html, feeds-visualizar.html
 
-    - login.html
+- eventos.html, eventos-visualizar.html
 
-    - register.html
+- usuarios.html
 
-    - forgot-password.html
+---
 
-📱 Responsividade
+## 🔐 Autenticação
 
-    - O layout é mobile-first e totalmente responsivo, utilizando classes utilitárias do Tailwind CSS para garantir uma boa experiência em qualquer dispositivo.
+### Páginas HTML:
 
-🎯 Objetivos do Projeto
+- login.html
 
-    - Facilitar a gestão de pedidos e materiais por parte das artesãs.
+- register.html
 
-    - Conectar doadores a projetos voluntários de forma prática.
+- forgot-password.html
 
-    - Aumentar a visibilidade do trabalho artesanal solidário.
+---
 
-    - Oferecer uma plataforma leve, funcional e acessível.
+## 📱 Responsividade
+
+- O layout é **mobile-first** e totalmente responsivo, utilizando classes utilitárias do **Tailwind CSS** para garantir uma boa experiência em qualquer dispositivo.
+
+---
+
+## 🎯 Objetivos do Projeto
+
+- Facilitar a gestão de pedidos e materiais por parte das artesãs.
+
+- Conectar doadores a projetos voluntários de forma prática.
+
+- Aumentar a visibilidade do trabalho artesanal solidário.
+
+- Oferecer uma plataforma leve, funcional e acessível.
