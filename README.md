@@ -22,13 +22,13 @@ Este projeto propõe uma solução para conectar doadores a artesãs e costureir
 ---
 
 ## 📁 Estrutura de Pastas
-
+```bash
 📦 projeto/
 ├── 📁 css/
 ├── 📁 html/
 ├── 📁 images/
 └── 📁 js/
-
+```
 ---
 
 # 👥 Perfis de Usuário
