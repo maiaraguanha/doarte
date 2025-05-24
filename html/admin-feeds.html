@@ -149,251 +149,263 @@
       </div>
     </div>
     
-    <!-- Lista de Feeds -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      <!-- Feed 1 -->
-      <a href="admin-feeds-visualizar.html" class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
-        <div class="relative h-48">
-          <img 
-            src="https://placehold.co/600x400/BFD7ED/FFFFFF?text=Cerâmica+Decorativa" 
-            alt="Cerâmica Decorativa" 
-            class="w-full h-full object-cover"
-          >
-          <span class="absolute top-4 left-4 bg-sky-300 text-white px-3 py-1 rounded-full text-sm font-medium">
-            Cerâmica
-          </span>
-        </div>
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-gray-800 mb-1">Cerâmica Decorativa</h3>
-          <p class="text-gray-600 text-sm mb-3 line-clamp-2">
-            Aprenda técnicas simples para criar peças de cerâmica incríveis no conforto da sua casa.
-            Neste tutorial, vamos como uma peça de cerâmica decorativa é feita à mão com técnicas 
-            tradicionais passadas por gerações.Cada detalhe é cuidadosamente trabalhado para criar 
-            uma peça única que traz beleza e personalidade para qualquer ambiente. A cerâmica é 
-            queimada em forno de alta temperatura, garantindo durabilidade e acabamento de alta 
-            qualidade. As cores são obtidas através de pigmentos naturais, resultando em tons 
-            suaves e harmoniosos.
-          </p>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center">
-              <div class="w-8 h-8 bg-pink-200 rounded-full flex items-center justify-center text-pink-500 font-bold text-xs mr-2">
-                MS
+    <!-- Lista de Publicações -->
+      <div class="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Publicação 1 -->
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
+          <a href="admin-feeds-visualizar.html">
+            <div class="relative">
+              <img src="https://placehold.co/600x400/BFD7ED/FFFFFF?text=Cerâmica+Decorativa" alt="Imagem da publicação" class="w-full h-48 object-cover">
+              <div class="absolute top-2 right-2 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                Destaque
               </div>
-              <span class="text-sm text-gray-700">Maria Silva</span>
             </div>
-            <span class="text-xs text-gray-500">2 dias atrás</span>
+          </a>
+          <div class="p-4">
+            <div class="flex justify-between items-start mb-2">
+              <span class="px-2 py-1 bg-sky-100 text-sky-600 rounded-full text-xs">Tutoriais</span>
+              <span class="text-xs text-gray-500">15/05/2025</span>
+            </div>
+            
+            <h3 class="text-lg font-bold text-gray-800 mb-2">Como fazer cerâmica em casa</h3>
+            
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+              Aprenda técnicas simples para criar peças de cerâmica incríveis no conforto da sua casa.
+              Neste tutorial, vamos como uma peça de cerâmica decorativa é feita à mão com técnicas 
+              tradicionais passadas por gerações.Cada detalhe é cuidadosamente trabalhado para criar 
+              uma peça única que traz beleza e personalidade para qualquer ambiente. A cerâmica é 
+              queimada em forno de alta temperatura, garantindo durabilidade e acabamento de alta 
+              qualidade. As cores são obtidas através de pigmentos naturais, resultando em tons 
+              suaves e harmoniosos.
+            </p>
+            <!-- Bloco de ação-->
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <div class="w-8 h-8 bg-pink-200 rounded-full flex items-center justify-center text-pink-500 font-bold text-xs mr-2">
+                  MS
+                </div>
+                <span class="text-sm text-gray-700">Maria Silva</span>
+              </div>
+              <!-- Botão de ação-->
+              <div class="flex space-x-2">
+                <a href="admin-feeds-editar.html" class="text-yellow-500 hover:text-yellow-600">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <button class="text-red-500 hover:text-red-600" onclick="confirmarExclusao('Como fazer cerâmica em casa')">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </a>
-      
-      <!-- Feed 2 -->
-      <a href="#" class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
-        <div class="relative h-48">
-          <img 
-            src="https://placehold.co/600x400/F9C6D1/FFFFFF?text=Bordado+Artesanal" 
-            alt="Bordado Artesanal" 
-            class="w-full h-full object-cover"
-          >
-          <span class="absolute top-4 left-4 bg-pink-300 text-white px-3 py-1 rounded-full text-sm font-medium">
-            Têxtil
-          </span>
-        </div>
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-gray-800 mb-1">Bordado Artesanal</h3>
-          <p class="text-gray-600 text-sm mb-3 line-clamp-2">
-            Bordado feito à mão com técnicas tradicionais do nordeste brasileiro, 
-            representando a cultura local. Dicas de como utilizar no dia a dia.
-          </p>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center">
-              <div class="w-8 h-8 bg-sky-200 rounded-full flex items-center justify-center text-sky-500 font-bold text-xs mr-2">
-                JC
-              </div>
-              <span class="text-sm text-gray-700">João Costa</span>
+        
+        <!-- Publicação 2 -->
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
+          <a href="#">
+            <div class="relative">
+              <img src="https://placehold.co/600x400/F9C6D1/FFFFFF?text=Bordado+Artesanal" alt="Imagem da publicação" class="w-full h-48 object-cover">
             </div>
-            <span class="text-xs text-gray-500">5 dias atrás</span>
+          </a>
+          <div class="p-4">
+            <div class="flex justify-between items-start mb-2">
+              <span class="px-2 py-1 bg-sky-100 text-sky-600 rounded-full text-xs">Dicas</span>
+              <span class="text-xs text-gray-500">10/05/2025</span>
+            </div>
+            
+            <h3 class="text-lg font-bold text-gray-800 mb-2">5 bordados mais utilizados no nordeste</h3>
+            
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+              Bordado feito à mão com técnicas tradicionais do nordeste brasileiro, 
+              representando a cultura local. Dicas de como utilizar no dia a dia. 
+            </p>
+            
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <div class="w-8 h-8 bg-sky-200 rounded-full flex items-center justify-center text-sky-500 font-bold text-xs mr-2">
+                  JC
+                </div>
+                <span class="text-sm text-gray-700">João Costa</span>
+              </div>
+              
+              <div class="flex space-x-2">
+                <a href="#" class="text-yellow-500 hover:text-yellow-600">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <button class="text-red-500 hover:text-red-600" onclick="confirmarExclusao('5 ferramentas essenciais para artesãos')">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </a>
-      
-      <!-- Feed 3 -->
-      <a href="#" class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
-        <div class="relative h-48">
-          <img 
-            src="https://placehold.co/600x400/FFF2CC/FFFFFF?text=Escultura+em+Madeira" 
-            alt="Escultura em Madeira" 
-            class="w-full h-full object-cover"
-          >
-          <span class="absolute top-4 left-4 bg-amber-300 text-white px-3 py-1 rounded-full text-sm font-medium">
-            Madeira
-          </span>
-        </div>
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-gray-800 mb-1">Escultura em Madeira</h3>
-          <p class="text-gray-600 text-sm mb-3 line-clamp-2">
-            Conheça as principais tendências de artesanato que estão bombando em 2025.
-            Cores, materiais e técnicas que estão em alta.
-          </p>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center">
-              <div class="w-8 h-8 bg-yellow-200 rounded-full flex items-center justify-center text-yellow-500 font-bold text-xs mr-2">
-                AS
-              </div>
-              <span class="text-sm text-gray-700">Ana Santos</span>
+        
+        <!-- Publicação 3 -->
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
+          <a href="#">
+            <div class="relative">
+              <img src="https://placehold.co/600x400/FFF2CC/FFFFFF?text=Escultura+em+Madeira" alt="Imagem da publicação" class="w-full h-48 object-cover">
             </div>
-            <span class="text-xs text-gray-500">1 semana atrás</span>
+          </a>
+
+          <div class="p-4">
+            <div class="flex justify-between items-start mb-2">
+              <span class="px-2 py-1 bg-sky-100 text-sky-600 rounded-full text-xs">Inspiração</span>
+              <span class="text-xs text-gray-500">05/05/2025</span>
+            </div>
+            
+            <h3 class="text-lg font-bold text-gray-800 mb-2">Tendências de artesanato para 2025</h3>
+            
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+              Conheça as principais tendências de artesanato que estão bombando em 2025.
+              Cores, materiais e técnicas que estão em alta.
+            </p>
+            
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <div class="w-8 h-8 bg-yellow-200 rounded-full flex items-center justify-center text-yellow-500 font-bold text-xs mr-2">
+                  AS
+                </div>
+                <span class="text-sm text-gray-700">Ana Santos</span>
+              </div>
+              
+              <div class="flex space-x-2">
+                <a href="#" class="text-yellow-500 hover:text-yellow-600">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <button class="text-red-500 hover:text-red-600" onclick="confirmarExclusao('Tendências de artesanato para 2023')">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </a>
-      
-      <!-- Feed 4 -->
-      <a href="#" class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
-        <div class="relative h-48">
-          <img 
-            src="https://placehold.co/600x400/D8F3DC/FFFFFF?text=Bijuteria+Artesanal" 
-            alt="Bijuteria Artesanal" 
-            class="w-full h-full object-cover"
-          >
-          <span class="absolute top-4 left-4 bg-green-300 text-white px-3 py-1 rounded-full text-sm font-medium">
-            Joalheria
-          </span>
-        </div>
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-gray-800 mb-1">Bijuteria Artesanal</h3>
-          <p class="text-gray-600 text-sm mb-3 line-clamp-2">
-            Descubra os materiais sustentáveis que estão revolucionando o mundo do artesanato. 
-            Alternativas ecológicas que não comprometem a qualidade. Conjunto de brincos e colar 
-            feitos com sementes e materiais naturais da Amazônia.
-          </p>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center">
-              <div class="w-8 h-8 bg-green-200 rounded-full flex items-center justify-center text-green-500 font-bold text-xs mr-2">
-                PL
-              </div>
-              <span class="text-sm text-gray-700">Pedro Lima</span>
+        
+        <!-- Publicação 4 -->
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
+          <a href="#">
+            <div class="relative">
+              <img src="https://placehold.co/600x400/D8F3DC/FFFFFF?text=Bijuteria+Artesanal" alt="Imagem da publicação" class="w-full h-48 object-cover">
             </div>
-            <span class="text-xs text-gray-500">2 semanas atrás</span>
+          </a>
+
+          <div class="p-4">
+            <div class="flex justify-between items-start mb-2">
+              <span class="px-2 py-1 bg-sky-100 text-sky-600 rounded-full text-xs">Novidades</span>
+              <span class="text-xs text-gray-500">01/05/2025</span>
+            </div>
+            
+            <h3 class="text-lg font-bold text-gray-800 mb-2">Novos materiais sustentáveis para artesanato</h3>
+            
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+              Descubra os materiais sustentáveis que estão revolucionando o mundo do artesanato. 
+              Alternativas ecológicas que não comprometem a qualidade. Conjunto de brincos e colar 
+              feitos com sementes e materiais naturais da Amazônia.
+            </p>
+            
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <div class="w-8 h-8 bg-green-200 rounded-full flex items-center justify-center text-green-500 font-bold text-xs mr-2">
+                  PL
+                </div>
+                <span class="text-sm text-gray-700">Pedro Lima</span>
+              </div>
+              
+              <div class="flex space-x-2">
+                <a href="#" class="text-yellow-500 hover:text-yellow-600">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <button class="text-red-500 hover:text-red-600" onclick="confirmarExclusao('Novos materiais sustentáveis para artesanato')">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </a>
-      
-      <!-- Feed 5 -->
-      <a href="#" class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
-        <div class="relative h-48">
-          <img 
-            src="https://placehold.co/600x400/BFD7ED/FFFFFF?text=Vaso+de+Cerâmica" 
-            alt="Vaso de Cerâmica" 
-            class="w-full h-full object-cover"
-          >
-          <span class="absolute top-4 left-4 bg-sky-300 text-white px-3 py-1 rounded-full text-sm font-medium">
-            Cerâmica
-          </span>
-        </div>
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-gray-800 mb-1">Vaso de Cerâmica</h3>
-          <p class="text-gray-600 text-sm mb-3 line-clamp-2">
-            Vaso de cerâmica com acabamento rústico, ideal para plantas ou como peça decorativa.
-          </p>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center">
-              <div class="w-8 h-8 bg-sky-200 rounded-full flex items-center justify-center text-sky-500 font-bold text-xs mr-2">
-                JP
+        
+        <!-- Publicação 5 -->
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
+          <a href="#">
+            <div class="relative">
+              <img src="https://placehold.co/600x400/BFD7ED/FFFFFF?text=Vaso+de+Cerâmica" alt="Imagem da publicação" class="w-full h-48 object-cover">
+              <div class="absolute top-2 right-2 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                Destaque
               </div>
-              <span class="text-sm text-gray-700">João Paulo</span>
             </div>
-            <span class="text-xs text-gray-500">3 semanas atrás</span>
+          </a>
+
+          <div class="p-4">
+            <div class="flex justify-between items-start mb-2">
+              <span class="px-2 py-1 bg-sky-100 text-sky-600 rounded-full text-xs">Inspiração</span>
+              <span class="text-xs text-gray-500">28/04/2025</span>
+            </div>
+            
+            <h3 class="text-lg font-bold text-gray-800 mb-2">Vaso de Cerâmica Rústico</h3>
+            
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+              Vaso de cerâmica com acabamento rústico, ideal para plantas ou como peça decorativa.
+            </p>
+            
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <div class="w-8 h-8 bg-sky-200 rounded-full flex items-center justify-center text-sky-500 font-bold text-xs mr-2">
+                  JP
+                </div>
+                <span class="text-sm text-gray-700">João Paulo</span>
+              </div>
+              
+              <div class="flex space-x-2">
+                <a href="#" class="text-yellow-500 hover:text-yellow-600">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <button class="text-red-500 hover:text-red-600" onclick="confirmarExclusao('Feira de Artesanato em São Paulo')">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </a>
-      
-      <!-- Feed 6 -->
-      <a href="#" class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
-        <div class="relative h-48">
-          <img 
-            src="https://placehold.co/600x400/F9C6D1/FFFFFF?text=Tapete+Artesanal" 
-            alt="Tapete Artesanal" 
-            class="w-full h-full object-cover"
-          >
-          <span class="absolute top-4 left-4 bg-pink-300 text-white px-3 py-1 rounded-full text-sm font-medium">
-            Têxtil
-          </span>
-        </div>
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-gray-800 mb-1">Tapete Artesanal</h3>
-          <p class="text-gray-600 text-sm mb-3 line-clamp-2">
-            Tapete feito à mão com técnica de tear manual, utilizando fios naturais 
-            tingidos com corantes vegetais.
-          </p>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center">
-              <div class="w-8 h-8 bg-yellow-200 rounded-full flex items-center justify-center text-yellow-500 font-bold text-xs mr-2">
-                AP
-              </div>
-              <span class="text-sm text-gray-700">Ana Pereira</span>
+        
+        <!-- Publicação 6 -->
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
+          <a href="#">
+            <div class="relative">
+              <img src="https://placehold.co/600x400/F9C6D1/FFFFFF?text=Tapete+Artesanal" alt="Imagem da publicação" class="w-full h-48 object-cover">
             </div>
-            <span class="text-xs text-gray-500">1 mês atrás</span>
+          </a>
+
+          <div class="p-4">
+            <div class="flex justify-between items-start mb-2">
+              <span class="px-2 py-1 bg-sky-100 text-sky-600 rounded-full text-xs">Tutoriais</span>
+              <span class="text-xs text-gray-500">25/04/2025</span>
+            </div>
+            
+            <h3 class="text-lg font-bold text-gray-800 mb-2">Como precificar seu artesanato</h3>
+            
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+              Tapete feito à mão com técnica de tear manual, utilizando fios naturais 
+              tingidos com corantes vegetais.            
+            </p>
+            
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <div class="w-8 h-8 bg-yellow-200 rounded-full flex items-center justify-center text-yellow-500 font-bold text-xs mr-2">
+                  AP
+                </div>
+                <span class="text-sm text-gray-700">Ana Pereira</span>
+              </div>
+              
+              <div class="flex space-x-2">
+                <a href="#" class="text-yellow-500 hover:text-yellow-600">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <button class="text-red-500 hover:text-red-600" onclick="confirmarExclusao('Como precificar seu artesanato')">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </a>
-      
-      <!-- Feed 7 -->
-      <a href="#" class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
-        <div class="relative h-48">
-          <img 
-            src="https://placehold.co/600x400/FFF2CC/FFFFFF?text=Móvel+Rústico" 
-            alt="Móvel Rústico" 
-            class="w-full h-full object-cover"
-          >
-          <span class="absolute top-4 left-4 bg-amber-300 text-white px-3 py-1 rounded-full text-sm font-medium">
-            Madeira
-          </span>
-        </div>
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-gray-800 mb-1">Movél Rústico</h3>
-          <p class="text-gray-600 text-sm mb-3 line-clamp-2">
-            Banquinho feito com madeira de demolição, com acabamento natural e design minimalista.
-          </p>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center">
-              <div class="w-8 h-8 bg-green-200 rounded-full flex items-center justify-center text-green-500 font-bold text-xs mr-2">
-                RS
-              </div>
-              <span class="text-sm text-gray-700">Raphael Santos</span>
-            </div>
-            <span class="text-xs text-gray-500">1 mês atrás</span>
-          </div>
-        </div>
-      </a>
-      
-      <!-- Feed 8 -->
-      <a href="#" class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover">
-        <div class="relative h-48">
-          <img 
-            src="https://placehold.co/600x400/D8F3DC/FFFFFF?text=Colar+Artesanal" 
-            alt="Colar Artesanal" 
-            class="w-full h-full object-cover"
-          >
-          <span class="absolute top-4 left-4 bg-green-300 text-white px-3 py-1 rounded-full text-sm font-medium">
-            Joalheria
-          </span>
-        </div>
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-gray-800 mb-1">Colar de Sementes</h3>
-          <p class="text-gray-600 text-sm mb-3 line-clamp-2">
-            Colar feito com sementes da Amazônia, com pingente de madeira entalhada à mão.
-          </p>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center">
-              <div class="w-8 h-8 bg-pink-200 rounded-full flex items-center justify-center text-pink-500 font-bold text-xs mr-2">
-                LS
-              </div>
-              <span class="text-sm text-gray-700">Luna Silva</span>
-            </div>
-            <span class="text-xs text-gray-500">2 meses atrás</span>
-          </div>
-        </div>
-      </a>
-    </div>
+      </div>
     
     <!-- Paginação -->
     <div class="mt-10 flex justify-center">
