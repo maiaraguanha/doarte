@@ -69,7 +69,7 @@ Este projeto propõe uma solução para conectar doadores a artesãs e costureir
 
 - usuario-index.html
 
-- usuario-artesaos.html
+- usuario-artesaos.html, usuario-artesaos-visualizar.html
 
 - usuario-pedidos.html, usuario-pedidos-cadastrar.html
 
